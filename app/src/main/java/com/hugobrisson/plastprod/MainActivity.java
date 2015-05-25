@@ -1,40 +1,42 @@
 package com.hugobrisson.plastprod;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+
+import com.rey.material.widget.EditText;
+
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
 
-
+@EActivity(R.layout.activity_main)
 public class MainActivity extends ActionBarActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    @ViewById(R.id.identifiant)
+    EditText email;
+    @ViewById(R.id.password)
+    EditText password;
+    @ViewById(R.id.button_connect)
+    com.rey.material.widget.Button connect;
+
+    private String emailText;
+    private String passwordText;
+
+    @AfterViews
+    void configure() {
+        emailText="hugo";
+        passwordText="test";
+
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    @Click(R.id.button_connect)
+    void click(){
+        if(emailText.equals(email.getText().toString()) && passwordText.equals(password.getText().toString())){
+            startActivity(new Intent(this,HomeActivity_.class));
+            finish();
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
 }

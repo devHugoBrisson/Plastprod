@@ -1,28 +1,61 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <!--<com.rey.material.widget.EditText
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@mipmap/ic_launcher" />
+
+    <com.rey.material.widget.EditText
+        android:id="@+id/identifiant"
+        android:layout_centerVertical="true"
         style="@style/Material.Widget.EditText.Light"
-        android:id="@+id/textfield_et_char_counter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textColor="#FF000000"
+        android:hint="Identifant"
         android:inputType="textMultiLine"
-        android:hint="Email"
+        android:textColor="@android:color/black"
+        app:et_dividerErrorColor="#FFFF0000"
         app:et_inputId="@+id/textfield_et_char_counter_input"
         app:et_supportMode="charCounter"
-        app:et_supportTextErrorColor="#FFFF0000"
+        app:et_supportTextErrorColor="#FFFF0000" />
+
+    <com.rey.material.widget.EditText
+        android:id="@+id/password"
+        style="@style/Material.Widget.EditText.Light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/identifiant"
+        android:layout_marginTop="8dp"
+        android:hint="Password"
+        android:inputType="textMultiLine"
+        android:textColor="@android:color/black"
         app:et_dividerErrorColor="#FFFF0000"
-        />
-        -->
+        app:et_inputId="@+id/textfield_et_char_counter_input"
+        app:et_supportMode="charCounter"
+        app:et_supportTextErrorColor="#FFFF0000" />
+
+    <com.rey.material.widget.Button
+        android:id="@+id/button_connect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connexion"
+        android:background="#42A5F5"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        app:rd_enable="true"/>
 
 </RelativeLayout>
