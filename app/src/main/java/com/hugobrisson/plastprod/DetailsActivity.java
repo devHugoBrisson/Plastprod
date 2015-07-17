@@ -19,10 +19,11 @@ import java.util.List;
 @EActivity(R.layout.activity_details)
 public class DetailsActivity extends ActionBarActivity {
 
-   List<String> listClient = new ArrayList<>();
+    List<String> listClient = new ArrayList<>();
+
 
     @Extra("product")
-    String productName;
+    Product product;
 
     @ViewById(R.id.photo_product)
     ImageView photo_product;
@@ -42,12 +43,12 @@ public class DetailsActivity extends ActionBarActivity {
     @ViewById(R.id.list_command)
     ListView listViewCommand;
 
- @AfterViews()
-    void configure(){
-     productName_TV.setText(productName);
-     listClient.add("Renault");
-     listClient.add("Ford");
-     listViewCommand.setAdapter(new CommandAdapter(listClient,getLayoutInflater()));
-
- }
+    @AfterViews()
+    void configure() {
+        productName_TV.setText(product.getmName());
+        numberStock_TV.setText(String.valueOf(product.getmInStock()));
+        listClient.add("Renault");
+        listClient.add("Ford");
+        listViewCommand.setAdapter(new CommandAdapter(listClient, getLayoutInflater()));
+    }
 }

@@ -14,10 +14,10 @@ import java.util.List;
  */
 public class ProductAdapter extends BaseAdapter {
 
-    private List<String> listProducts;
+    private List<Product> listProducts;
     private LayoutInflater layoutInflater;
 
-    public ProductAdapter(List<String> products, LayoutInflater inflater) {
+    public ProductAdapter(List<Product> products, LayoutInflater inflater) {
         listProducts = products;
         layoutInflater = inflater;
 
@@ -42,7 +42,9 @@ public class ProductAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = layoutInflater.inflate(R.layout.list_item, null);
         TextView productName = (TextView) convertView.findViewById(R.id.product_name);
-        productName.setText(listProducts.get(position));
+        TextView productStock = (TextView) convertView.findViewById(R.id.number);
+        productName.setText(listProducts.get(position).getmName());
+        productStock.setText((String.valueOf(listProducts.get(position).getmInStock())));
 
         return convertView;
     }

@@ -2,8 +2,8 @@ package com.hugobrisson.plastprod;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
+import android.widget.EditText;
 
-import com.rey.material.widget.EditText;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
